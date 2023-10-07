@@ -1,0 +1,616 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Apr 20, 2022 at 10:42 AM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.4.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `gp_katai`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fee_str`
+--
+
+DROP TABLE IF EXISTS `fee_str`;
+CREATE TABLE IF NOT EXISTS `fee_str` (
+  `fee_str_id` int(11) NOT NULL AUTO_INCREMENT,
+  `fee_str_file` varchar(255) NOT NULL,
+  `added_on` datetime NOT NULL,
+  `session` varchar(100) NOT NULL,
+  PRIMARY KEY (`fee_str_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_acal`
+--
+
+DROP TABLE IF EXISTS `tbl_acal`;
+CREATE TABLE IF NOT EXISTS `tbl_acal` (
+  `acal_id` int(11) NOT NULL AUTO_INCREMENT,
+  `acal_file` varchar(255) NOT NULL,
+  `added_on` datetime NOT NULL,
+  `session` varchar(100) NOT NULL,
+  PRIMARY KEY (`acal_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_acal`
+--
+
+INSERT INTO `tbl_acal` (`acal_id`, `acal_file`, `added_on`, `session`) VALUES
+(1, 'pdf/20220322080153sample.pdf', '2022-03-22 08:01:53', '2019-20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_accreditation`
+--
+
+DROP TABLE IF EXISTS `tbl_accreditation`;
+CREATE TABLE IF NOT EXISTS `tbl_accreditation` (
+  `ac_id` int(11) NOT NULL AUTO_INCREMENT,
+  `file` varchar(200) NOT NULL,
+  `session` varchar(30) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  `added_on` varchar(30) NOT NULL,
+  PRIMARY KEY (`ac_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_accreditation`
+--
+
+INSERT INTO `tbl_accreditation` (`ac_id`, `file`, `session`, `type`, `date`, `added_on`) VALUES
+(2, 'nba9500sample.pdf', '2019-20', 'nba', '2022-03-23', '2022-03-23 14:34:12'),
+(3, 'naac4866sample.pdf', '2019-20', 'naac', '2022-03-23', '2022-03-23 14:34:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_admin`
+--
+
+DROP TABLE IF EXISTS `tbl_admin`;
+CREATE TABLE IF NOT EXISTS `tbl_admin` (
+  `adm_id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  PRIMARY KEY (`adm_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_admin`
+--
+
+INSERT INTO `tbl_admin` (`adm_id`, `email`, `password`) VALUES
+(1, 'admin@gmail.com', 'admin@123'),
+(2, 'rohit@gmail.com', 'rohit@poly');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_aicte`
+--
+
+DROP TABLE IF EXISTS `tbl_aicte`;
+CREATE TABLE IF NOT EXISTS `tbl_aicte` (
+  `doc_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) DEFAULT NULL,
+  `file` varchar(60) DEFAULT NULL,
+  `date` varchar(12) DEFAULT NULL,
+  PRIMARY KEY (`doc_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_aicte`
+--
+
+INSERT INTO `tbl_aicte` (`doc_id`, `title`, `file`, `date`) VALUES
+(1, 'Letter of Approval for New Institution 2019-20', 'aicte-082aicte19-20.pdf', '2022-03-22'),
+(2, 'Extension of Approval for the Academic Year 2020-21', 'aicte-515aicte20-21.pdf', '2022-03-22'),
+(3, 'Extension of Approval for the Academic Year 2021-22', 'aicte-730aicte21-22.pdf', '2022-03-22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_alumni`
+--
+
+DROP TABLE IF EXISTS `tbl_alumni`;
+CREATE TABLE IF NOT EXISTS `tbl_alumni` (
+  `id` int(30) NOT NULL AUTO_INCREMENT,
+  `name` varchar(60) DEFAULT NULL,
+  `enrollment` varchar(30) DEFAULT NULL,
+  `fname` varchar(60) DEFAULT NULL,
+  `branch` varchar(60) DEFAULT NULL,
+  `year` varchar(30) DEFAULT NULL,
+  `mob` bigint(10) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `marks` int(30) DEFAULT NULL,
+  `company` varchar(60) DEFAULT NULL,
+  `designation` varchar(60) DEFAULT NULL,
+  `feedback` varchar(200) DEFAULT NULL,
+  `about` varchar(200) DEFAULT NULL,
+  `pic` varchar(60) DEFAULT NULL,
+  `cv` varchar(90) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `status` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_alumni`
+--
+
+INSERT INTO `tbl_alumni` (`id`, `name`, `enrollment`, `fname`, `branch`, `year`, `mob`, `email`, `marks`, `company`, `designation`, `feedback`, `about`, `pic`, `cv`, `date`, `status`) VALUES
+(1, 'shiva', '3445', 'shivnath', 'CS', '2022', 53466264242, 'shiva@gmail.com', 98, 'SPI', 'JSE', 'Great time period', 'I am shiva goyal', 'alumni-2205596235dummy.png', 'cv-2546194963sample.pdf', '2022-03-22', 'Y');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_contact`
+--
+
+DROP TABLE IF EXISTS `tbl_contact`;
+CREATE TABLE IF NOT EXISTS `tbl_contact` (
+  `con_id` int(11) NOT NULL AUTO_INCREMENT,
+  `fname` varchar(100) NOT NULL,
+  `lname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `mobile` varchar(10) NOT NULL,
+  `message` varchar(200) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  PRIMARY KEY (`con_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_contact`
+--
+
+INSERT INTO `tbl_contact` (`con_id`, `fname`, `lname`, `email`, `mobile`, `message`, `date`) VALUES
+(1, 'shiva', 'goyal', 'shiva@gmail.com', '3431515151', 'text message\r\n                                ', '2022-03-23 10:54:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_department`
+--
+
+DROP TABLE IF EXISTS `tbl_department`;
+CREATE TABLE IF NOT EXISTS `tbl_department` (
+  `dept_id` int(11) NOT NULL AUTO_INCREMENT,
+  `dept_name` varchar(50) NOT NULL,
+  `date` varchar(10) NOT NULL,
+  PRIMARY KEY (`dept_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_department`
+--
+
+INSERT INTO `tbl_department` (`dept_id`, `dept_name`, `date`) VALUES
+(1, 'Mechanical Engineering(Automobile)', '2022-03-22'),
+(2, 'Chemical Engineering', '2022-03-22'),
+(3, 'Computer Science and Engineering', '2022-03-22'),
+(5, 'N/A', '2022-03-22'),
+(6, 'Workshop', '2022-03-22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_gallery`
+--
+
+DROP TABLE IF EXISTS `tbl_gallery`;
+CREATE TABLE IF NOT EXISTS `tbl_gallery` (
+  `gal_id` int(11) NOT NULL AUTO_INCREMENT,
+  `text1` varchar(100) NOT NULL,
+  `text2` varchar(100) NOT NULL,
+  `pic` varchar(100) NOT NULL,
+  `type` varchar(60) NOT NULL,
+  `date` varchar(10) NOT NULL,
+  PRIMARY KEY (`gal_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_gallery`
+--
+
+INSERT INTO `tbl_gallery` (`gal_id`, `text1`, `text2`, `pic`, `type`, `date`) VALUES
+(1, 'gal 1', 'gal 1', 'gallery8667g4.jpg', 'gallery', '2022-03-23'),
+(2, 'gal 2', 'gal 2', 'gallery3538g3.jpg', 'gallery', '2022-03-23'),
+(3, 'gal 3', 'gal 3', 'gallery5233g2.jpg', 'gallery', '2022-03-23'),
+(4, 'gal 4', 'gal 4', 'gallery7694g1.jpg', 'gallery', '2022-03-23'),
+(5, 'ind 1', 'ind 1', 'industrial949601e.jpg', 'industrial', '2022-03-23'),
+(6, 'sports 1', 'sports 1', 'sports3436sports.jpg', 'sports', '2022-03-23'),
+(7, 'seminar 1', 'seminar 1', 'seminar1921g1.jpg', 'seminar', '2022-03-23'),
+(8, 'survey 1', 'survey 1', 'survey7865bg3.jpg', 'survey', '2022-03-23'),
+(9, 'annual 1', 'annual 1', 'annual4431g2.jpg', 'annual', '2022-03-23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_grievance`
+--
+
+DROP TABLE IF EXISTS `tbl_grievance`;
+CREATE TABLE IF NOT EXISTS `tbl_grievance` (
+  `g_id` int(11) NOT NULL AUTO_INCREMENT,
+  `stu_name` varchar(60) NOT NULL,
+  `enroll_no` varchar(60) NOT NULL,
+  `mobile` varchar(10) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `subject` varchar(60) NOT NULL,
+  `msg` varchar(200) NOT NULL,
+  `status` varchar(60) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  PRIMARY KEY (`g_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_grievance`
+--
+
+INSERT INTO `tbl_grievance` (`g_id`, `stu_name`, `enroll_no`, `mobile`, `email`, `subject`, `msg`, `status`, `date`) VALUES
+(1, 'shiva gupta', '443', '454545523', 'shiva@gmail.com', 'subject', 'message', 'N', '2022-03-22 18:50:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_link`
+--
+
+DROP TABLE IF EXISTS `tbl_link`;
+CREATE TABLE IF NOT EXISTS `tbl_link` (
+  `link_id` int(11) NOT NULL AUTO_INCREMENT,
+  `link_title` varchar(500) NOT NULL,
+  `link_url` varchar(500) NOT NULL,
+  `link_date` varchar(30) NOT NULL,
+  PRIMARY KEY (`link_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_link`
+--
+
+INSERT INTO `tbl_link` (`link_id`, `link_title`, `link_url`, `link_date`) VALUES
+(2, 'AICTE', 'https://www.aicte-india.org/', '2022-04-20'),
+(3, 'AICTE Feedback', 'https://www.aicte-india.org/feedback/index.php', '2022-04-20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_mandis`
+--
+
+DROP TABLE IF EXISTS `tbl_mandis`;
+CREATE TABLE IF NOT EXISTS `tbl_mandis` (
+  `mandis_id` int(11) NOT NULL AUTO_INCREMENT,
+  `mandis_title` varchar(500) NOT NULL,
+  `mandis_file` varchar(100) NOT NULL,
+  `mandis_date` varchar(30) NOT NULL,
+  PRIMARY KEY (`mandis_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_mandis`
+--
+
+INSERT INTO `tbl_mandis` (`mandis_id`, `mandis_title`, `mandis_file`, `mandis_date`) VALUES
+(2, ' Mandatory Disclosure doc 1', 'mandis-673sample.pdf', '2022-04-20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_mou`
+--
+
+DROP TABLE IF EXISTS `tbl_mou`;
+CREATE TABLE IF NOT EXISTS `tbl_mou` (
+  `doc_id` int(11) NOT NULL AUTO_INCREMENT,
+  `company` varchar(200) NOT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `file` varchar(60) DEFAULT NULL,
+  `date` varchar(12) DEFAULT NULL,
+  PRIMARY KEY (`doc_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_mou`
+--
+
+INSERT INTO `tbl_mou` (`doc_id`, `company`, `title`, `file`, `date`) VALUES
+(1, 'TECHNIFIED PVT. LTD.', 'PROMOTION OF INDUSTRY INTEGRATED PROGRAMMES', 'mou-368mou1.pdf', '2022-03-22'),
+(2, 'UPTOSKILLS', 'SKILLS DEVELOPMENT TRAINING/ PLACEMENT', 'mou-754mou3.pdf', '2022-03-22'),
+(3, 'MEDIFIED PVT. LTD., GHAZIABAD, UP', 'CURRICULUM DESIGN, INDUSTRIAL TRAINING & VISITS, INTERNSHIPS AND PLACEMENT OF STUDENTS', 'mou-036mou2.pdf', '2022-03-22'),
+(4, 'NAANDI FOUNDATION, HYDERABAD', 'EMPLOYABILITY SKILL DEVELOPMENT PROGRAM	', 'mou-678mou4.pdf', '2022-03-22'),
+(5, 'SOFTPRO INDIA COMPUTER TECHNOLOGIES PVT. LTD., LUCKNOW', 'INDUSTRY ACADEMIA INTERACTION PROGRAM,CURRICULUM DESIGN, INDUSTRIAL TRAINING & VISITS, INTERNSHIPS AND PLACEMENT OF STUDENTS', 'mou-420mou5.pdf', '2022-03-22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_nonteacher`
+--
+
+DROP TABLE IF EXISTS `tbl_nonteacher`;
+CREATE TABLE IF NOT EXISTS `tbl_nonteacher` (
+  `non_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `fname` varchar(100) NOT NULL,
+  `designation` varchar(100) NOT NULL,
+  `mobile` varchar(10) NOT NULL,
+  `gender` varchar(6) NOT NULL,
+  `qualification` varchar(30) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `pic` varchar(100) NOT NULL,
+  `dor` varchar(20) NOT NULL,
+  PRIMARY KEY (`non_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_notice`
+--
+
+DROP TABLE IF EXISTS `tbl_notice`;
+CREATE TABLE IF NOT EXISTS `tbl_notice` (
+  `file_id` int(11) NOT NULL AUTO_INCREMENT,
+  `notice` varchar(200) NOT NULL,
+  `file_name` varchar(200) NOT NULL,
+  `date` varchar(20) NOT NULL,
+  PRIMARY KEY (`file_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_notice`
+--
+
+INSERT INTO `tbl_notice` (`file_id`, `notice`, `file_name`, `date`) VALUES
+(2, 'NOTICE (12-06-2021)', '20-04-2022-15-sample.pdf', '2022-04-20 10:10:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_placement`
+--
+
+DROP TABLE IF EXISTS `tbl_placement`;
+CREATE TABLE IF NOT EXISTS `tbl_placement` (
+  `s_id` int(11) NOT NULL AUTO_INCREMENT,
+  `stu_name` varchar(60) NOT NULL,
+  `branch` varchar(60) NOT NULL,
+  `company` varchar(60) NOT NULL,
+  `session` int(11) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`s_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_press`
+--
+
+DROP TABLE IF EXISTS `tbl_press`;
+CREATE TABLE IF NOT EXISTS `tbl_press` (
+  `press_id` int(11) NOT NULL AUTO_INCREMENT,
+  `text1` varchar(100) NOT NULL,
+  `text2` varchar(100) NOT NULL,
+  `pic` varchar(100) NOT NULL,
+  `date` varchar(10) NOT NULL,
+  PRIMARY KEY (`press_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_rag`
+--
+
+DROP TABLE IF EXISTS `tbl_rag`;
+CREATE TABLE IF NOT EXISTS `tbl_rag` (
+  `rag_id` int(11) NOT NULL AUTO_INCREMENT,
+  `stu_name` varchar(60) NOT NULL,
+  `enroll_no` varchar(60) NOT NULL,
+  `gen` varchar(10) NOT NULL,
+  `parent_name` varchar(60) NOT NULL,
+  `stu_email` varchar(60) NOT NULL,
+  `stu_mob` varchar(10) NOT NULL,
+  `parent_mob` varchar(10) NOT NULL,
+  `course` varchar(60) NOT NULL,
+  `year` varchar(60) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `complaint` varchar(500) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`rag_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_rag`
+--
+
+INSERT INTO `tbl_rag` (`rag_id`, `stu_name`, `enroll_no`, `gen`, `parent_name`, `stu_email`, `stu_mob`, `parent_mob`, `course`, `year`, `address`, `complaint`, `status`, `date`) VALUES
+(1, 'shiva goyal', '2344', 'male', 'shivnath goyal', 'shiva@gmail.com', '454246262', '556254255', 'ES', '3', 'Lucknow', 'test complaint', 'Y', '2022-03-22'),
+(2, 'shivam goyal', '343141', 'male', 'ravi goyal', 'shivam@gmail.com', '42352452', '55252525', 'CS', '2', 'Lucknow', 'test complaint', 'N', '2022-03-22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_result`
+--
+
+DROP TABLE IF EXISTS `tbl_result`;
+CREATE TABLE IF NOT EXISTS `tbl_result` (
+  `res_id` int(11) NOT NULL AUTO_INCREMENT,
+  `link` varchar(200) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  PRIMARY KEY (`res_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_result`
+--
+
+INSERT INTO `tbl_result` (`res_id`, `link`, `date`) VALUES
+(1, 'http://softproindia.in/', '2022-03-23 12:50:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_rti`
+--
+
+DROP TABLE IF EXISTS `tbl_rti`;
+CREATE TABLE IF NOT EXISTS `tbl_rti` (
+  `doc_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(60) DEFAULT NULL,
+  `file` varchar(60) DEFAULT NULL,
+  `date` varchar(12) DEFAULT NULL,
+  PRIMARY KEY (`doc_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_rti`
+--
+
+INSERT INTO `tbl_rti` (`doc_id`, `title`, `file`, `date`) VALUES
+(1, 'Right to Information 2019', 'rti-219sample.pdf', '2022-03-22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_slider`
+--
+
+DROP TABLE IF EXISTS `tbl_slider`;
+CREATE TABLE IF NOT EXISTS `tbl_slider` (
+  `slider_id` int(11) NOT NULL AUTO_INCREMENT,
+  `text1` varchar(100) NOT NULL,
+  `text2` varchar(100) NOT NULL,
+  `pic` varchar(100) NOT NULL,
+  `date` varchar(10) NOT NULL,
+  PRIMARY KEY (`slider_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_slider`
+--
+
+INSERT INTO `tbl_slider` (`slider_id`, `text1`, `text2`, `pic`, `date`) VALUES
+(1, 'slide 1', 'slide 1', 'slide.jpg', '2022-03-22'),
+(2, 'slide 2', 'slide 2', 'about1.jpg', '2022-03-22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_teacher`
+--
+
+DROP TABLE IF EXISTS `tbl_teacher`;
+CREATE TABLE IF NOT EXISTS `tbl_teacher` (
+  `tech_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `dob` varchar(10) NOT NULL,
+  `fname` varchar(100) NOT NULL,
+  `gender` varchar(6) NOT NULL,
+  `mobile` varchar(10) NOT NULL,
+  `email` varchar(80) NOT NULL,
+  `dept_id` int(11) NOT NULL,
+  `designation` varchar(50) NOT NULL,
+  `qualification` varchar(200) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `pic` varchar(100) NOT NULL,
+  `dor` varchar(20) NOT NULL,
+  PRIMARY KEY (`tech_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_teacher`
+--
+
+INSERT INTO `tbl_teacher` (`tech_id`, `name`, `dob`, `fname`, `gender`, `mobile`, `email`, `dept_id`, `designation`, `qualification`, `address`, `pic`, `dor`) VALUES
+(2, 'MR. VIJAY KUMAR', '2022-03-22', 'N/A', 'Male', '5534545425', 'kumar.vijayrajyan@gmail.com', 6, 'INSTRUCTOR	', 'DIPLOMA IN MECHANICAL ENGINEERING (MAINTENANCE)', 'N/A', 't1.jpg', '2022-03-22 17:50:38'),
+(3, ' MRS. RAKHI CHAUDHARY', '2022-03-23', 'N/A', 'Female', '0000000000', 'rakhi7chaudhary@gmail.com', 1, 'LECTURER PHYSICS', 'MSc. (PHYSICS), B. Ed.', 'N/A', 't2.jpg', '2022-03-23 11:48:42'),
+(4, 'MR. PRADEEP KUMAR', '2022-03-23', 'N/A', 'Male', '0000000000', 'kumarpradeep0097@gmail.com', 2, 'LECTURER', 'M.TECH (CHEMICAL ENGINEERING)', 'N/A', 't3.jpg', '2022-03-23 11:50:39'),
+(5, 'MR. AKSHAY KUMAR', '2022-03-23', 'N/A', 'Male', '0000000000', 'akshaykumardeshawar@gmail.com', 2, 'LECTURER', 'M.TECH (CHEMICAL ENGINEERING)', 'N/A', 't4.jpg', '2022-03-23 11:52:36'),
+(6, 'MRS. SANTOSH', '2022-03-23', 'N/A', 'Female', '0000000000', 'santosh.yyadav@gmail.com', 1, 'LECTURER MATHEMATICS', 'MSc. (MATHEMATICS), M. Phil.', 'N/A', 't5.jpg', '2022-03-23 11:54:01'),
+(7, 'MRS. MADHU SIDDHARTHA', '2022-03-23', 'N/A', 'Female', '0000000000', 'madhusiddhartha@gmail.com', 2, 'LECTURER COMPUTER', 'M.TECH (COMPUTER SCIENCE & ENGINEERING)', 'N/A', 't6.jpg', '2022-03-23 11:55:30'),
+(8, 'MRS. MONIKA BHARTI', '2022-03-23', 'N/A', 'Female', '0000000000', 'monikabharti1@gmail.com', 1, 'LECTURER CHEMISTRY', 'M.Sc. (GENERAL CHEMISTRY), B. Ed.	', 'N/A', 't7.jpg', '2022-03-23 11:59:26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_video`
+--
+
+DROP TABLE IF EXISTS `tbl_video`;
+CREATE TABLE IF NOT EXISTS `tbl_video` (
+  `v_id` int(30) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) NOT NULL,
+  `branch` varchar(60) NOT NULL,
+  `year` varchar(60) NOT NULL,
+  `subject` varchar(200) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  PRIMARY KEY (`v_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_video`
+--
+
+INSERT INTO `tbl_video` (`v_id`, `title`, `branch`, `year`, `subject`, `date`, `url`) VALUES
+(1, 'Size Reduction Equipment: Ball Mill', '2', '1st', 'Ball Mill', '2022-03-22 18:10:54', 'https://youtu.be/AqjTH_pkufc');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `time_table`
+--
+
+DROP TABLE IF EXISTS `time_table`;
+CREATE TABLE IF NOT EXISTS `time_table` (
+  `t_id` int(11) NOT NULL AUTO_INCREMENT,
+  `time_table_file` varchar(255) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  `added_on` datetime NOT NULL,
+  `session` varchar(100) NOT NULL,
+  PRIMARY KEY (`t_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `time_table`
+--
+
+INSERT INTO `time_table` (`t_id`, `time_table_file`, `type`, `date`, `added_on`, `session`) VALUES
+(2, 'pdf/20220322115431sample.pdf', 'holiday', '2022-03-23', '2022-03-22 11:54:31', '2019-20'),
+(3, 'pdf/20220322115501sample.pdf', 'time table', '2022-03-23', '2022-03-22 11:55:01', '2020-21'),
+(4, 'pdf/20220323084835sample.pdf', 'time table', '2022-03-23', '2022-03-23 08:48:35', '2021-22');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
