@@ -1,1 +1,1 @@
-aAutor : sSgi lLn sSbr tTm
+aAutor : dDpcr sSgi lLin
